@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: udagram-frontend
+  name: udagram-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: udagram-frontend
+    spec:
+      containers:
+      - image: trandai26/udagram-frontend:v1
+        name: udagram-frontend
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "2042Mi"
+            cpu: "500m"

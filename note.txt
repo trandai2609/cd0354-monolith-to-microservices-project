@@ -3,3 +3,19 @@ eksctl create cluster --name my-cluster --region us-east-1
 aws eks update-kubeconfig --region us-east-1 --name my-cluster
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+
+kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-feed-service.yaml
+kubectl apply -f backend-user-deployment.yaml
+kubectl apply -f backend-user-service.yaml
+kubectl apply -f reverseproxy-deployment.yaml
+kubectl apply -f reverseproxy-service.yaml
+
+kubectl expose deployment udagram-frontend --type=LoadBalancer --name=publicfrontend --port 80
+
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy --port 8080
+
+
+kubectl set image deployment udagram-frontend udagram-frontend=trandai26/udagram-frontend:v2

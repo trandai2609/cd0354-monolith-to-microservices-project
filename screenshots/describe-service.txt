@@ -1,0 +1,115 @@
+Name:              backend-feed
+Namespace:         default
+Labels:            service=backend-feed
+Annotations:       <none>
+Selector:          app=backend-feed
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.16.46
+IPs:               10.100.16.46
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         192.168.15.160:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              backend-user
+Namespace:         default
+Labels:            service=backend-user
+Annotations:       <none>
+Selector:          app=backend-user
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.112.203
+IPs:               10.100.112.203
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         192.168.57.107:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.0.1
+IPs:               10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         192.168.127.65:443,192.168.86.167:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     publicfrontend
+Namespace:                default
+Labels:                   app=udagram-frontend
+Annotations:              <none>
+Selector:                 app=udagram-frontend
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.156.85
+IPs:                      10.100.156.85
+LoadBalancer Ingress:     aab6453e90547460ca368d8418f65a82-1811110960.us-east-1.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31563/TCP
+Endpoints:                192.168.24.161:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  24m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   24m   service-controller  Ensured load balancer
+
+
+Name:                     publicreverseproxy
+Namespace:                default
+Labels:                   app=reverseproxy
+Annotations:              <none>
+Selector:                 app=reverseproxy
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.155.150
+IPs:                      10.100.155.150
+LoadBalancer Ingress:     aebe808f8c0514e86bbe1d5db9b39a09-1166777816.us-east-1.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  32607/TCP
+Endpoints:                192.168.33.89:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  23m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   23m   service-controller  Ensured load balancer
+
+
+Name:              udagram-frontend
+Namespace:         default
+Labels:            service=udagram-frontend
+Annotations:       <none>
+Selector:          app=udagram-frontend
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.6.85
+IPs:               10.100.6.85
+Port:              8100  8100/TCP
+TargetPort:        8100/TCP
+Endpoints:         192.168.24.161:8100
+Session Affinity:  None
+Events:            <none>
