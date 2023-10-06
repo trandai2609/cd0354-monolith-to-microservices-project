@@ -24,3 +24,4 @@ after_success:
   - docker push trandai26/udagram-api-user:v1
   - docker push trandai26/udagram-frontend:v2
   - docker push trandai26/reverseproxy:v1
+  
